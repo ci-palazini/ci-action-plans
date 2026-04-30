@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Sidebar } from './Sidebar'
 import { Topbar } from './Topbar'
-import { cn } from '../../lib/utils'
 
 export function AppShell() {
   const [mobileOpen, setMobileOpen] = useState(false)

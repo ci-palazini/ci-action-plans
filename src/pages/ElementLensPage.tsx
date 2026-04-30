@@ -148,7 +148,7 @@ export function ElementLensPage() {
                   tickLine={false}
                 />
                 <Tooltip
-                  formatter={(v: number) => [`${v}%`, 'Score']}
+                  formatter={(value) => [`${value ?? 0}%`, 'Score']}
                   contentStyle={{
                     fontFamily: 'Outfit, sans-serif',
                     fontSize: 12,

@@ -55,7 +55,10 @@ function CountryRadarCard({ summary }: { summary: CountrySummary }) {
           />
           <Tooltip
             contentStyle={{ borderRadius: 6, border: '1px solid #e2e8f0', fontSize: 11 }}
-            formatter={(v: number, _name: string, props: any) => [`${v}%`, props.payload.fullName]}
+            formatter={(value, _name, item) => [
+              `${value ?? 0}%`,
+              (item?.payload as { fullName?: string } | undefined)?.fullName ?? '',
+            ]}
           />
         </RadarChart>
       </ResponsiveContainer>

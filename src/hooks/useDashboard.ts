@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { getAllElements } from '../services/assessmentService'
 import { getAllActionPlanCounts, getActionPlanKeys } from '../services/actionPlanService'
-import { COUNTRIES, PILLARS } from '../lib/constants'
+import { COUNTRIES, PILLARS, isoToFlagEmoji } from '../lib/constants'
 import type { CountrySummary, PillarSummary, CoverageStats, CountryCoverageRow, PillarCoverageRow } from '../types'
 
 export function useDashboard() {
@@ -51,7 +51,7 @@ export function useDashboard() {
     return {
       countryId: country.id,
       countryName: country.name,
-      flagEmoji: country.flag,
+      flagEmoji: isoToFlagEmoji(country.iso),
       avgScore,
       pillars,
       actionPlansOpen:       counts.find((c) => c.status === 'open')?.count ?? 0,
@@ -90,7 +90,7 @@ export function useDashboard() {
       return {
         countryId: country.id,
         countryName: country.name,
-        flagEmoji: country.flag,
+        flagEmoji: isoToFlagEmoji(country.iso),
         needsPlan,
         withPlan,
         withoutPlan: needsPlan - withPlan,

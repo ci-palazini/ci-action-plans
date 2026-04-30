@@ -73,6 +73,12 @@ export const COUNTRY_ISO: Record<string, string> = Object.fromEntries(
   COUNTRIES.map((c) => [c.id, c.iso]),
 )
 
+export function isoToFlagEmoji(iso: string): string {
+  const normalized = iso.trim().toUpperCase()
+  if (!/^[A-Z]{2}$/.test(normalized)) return ''
+  return String.fromCodePoint(...normalized.split('').map((char) => 127397 + char.charCodeAt(0)))
+}
+
 export const CHART_COLORS = {
   argentina: '#EF4444',
   brazil:       '#10B981',

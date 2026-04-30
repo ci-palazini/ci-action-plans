@@ -5,7 +5,6 @@ import { Activity } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../contexts/AuthContext'
 import { Button } from '../components/ui/Button'
-import { Input } from '../components/ui/Input'
 
 export function LoginPage() {
   const { t } = useTranslation()
